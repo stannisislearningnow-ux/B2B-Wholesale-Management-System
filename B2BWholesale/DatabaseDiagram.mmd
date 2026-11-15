@@ -1,0 +1,42 @@
+erDiagram
+    ITEM ||--o{ ORDER_DETAIL : appears_in
+    AGENT ||--o{ ORDER : places
+    ORDER ||--|{ ORDER_DETAIL : contains
+    AGENT ||--o| USERS : linked_login
+
+    ITEM {
+        int ItemID PK
+        nvarchar ItemName
+        nvarchar Size
+        decimal Price
+        int StockQuantity
+    }
+    AGENT {
+        int AgentID PK
+        nvarchar AgentName
+        nvarchar Address
+        varchar Phone UK
+    }
+    ORDER {
+        int OrderID PK
+        datetime2 OrderDate
+        int AgentID FK
+        nvarchar OrderStatus
+    }
+    ORDER_DETAIL {
+        int ID PK
+        int OrderID FK
+        int ItemID FK
+        int Quantity
+        decimal UnitAmount
+    }
+    USERS {
+        int UserID PK
+        nvarchar UserName UK
+        nvarchar Email UK
+        nvarchar PasswordHash
+        bit Lock
+        int FailedLoginAttempts
+        nvarchar Role
+        int AgentID FK
+    }

@@ -1,0 +1,47 @@
+@model IReadOnlyList<OrderSummaryViewModel>
+@{
+    ViewData["Title"] = "My orders";
+}
+<div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-4">
+    <div>
+        <p class="eyebrow mb-1">ORDER HISTORY</p>
+        <h1 class="h2 fw-bold mb-1">My orders</h1>
+        <p class="text-secondary mb-0">Your orders and their latest back-office status.</p>
+    </div>
+    <a class="btn btn-primary" asp-action="Place"><i class="bi bi-plus-lg me-2"></i>New order</a>
+</div>
+<div class="card border-0 shadow-sm">
+    <div class="table-responsive">
+        <table class="table table-hover align-middle mb-0">
+            <thead><tr><th>Order</th><th>Date</th><th>Status</th><th class="text-end">Total</th><th class="text-end">Invoice</th></tr></thead>
+            <tbody>
+            @if (Model.Count == 0)
+            {
+                <tr><td colspan="5" class="text-center py-5 text-secondary">You have not placed any orders yet.</td></tr>
+            }
+            else
+            {
+                @foreach (var order in Model)
+                {
+                    <tr>
+                        <td class="fw-semibold">#@order.OrderID</td>
+                        <td>@order.OrderDate.ToLocalTime().ToString("dd MMM yyyy, HH:mm")</td>
+                        <td><span class="badge @StatusClass(order.OrderStatus)">@order.OrderStatus</span></td>
+                        <td class="text-end">@order.Total.ToString("N0") VND</td>
+                        <td class="text-end"><a class="btn btn-sm btn-outline-primary" asp-action="Invoice" asp-route-id="@order.OrderID"><i class="bi bi-printer me-1"></i>Print</a></td>
+                    </tr>
+                }
+            }
+            </tbody>
+        </table>
+    </div>
+</div>
+@functions {
+    private static string StatusClass(string status) => status switch
+    {
+        "Shipped" => "text-bg-success",
+        "Cancelled" => "text-bg-danger",
+        "Confirmed" => "text-bg-primary",
+        _ => "text-bg-warning"
+    };
+}

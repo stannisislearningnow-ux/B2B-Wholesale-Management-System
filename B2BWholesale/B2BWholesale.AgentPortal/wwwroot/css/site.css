@@ -1,0 +1,30 @@
+:root {
+    --portal-ink: #17243b;
+    --portal-blue: #174c8e;
+    --portal-soft: #f3f6fb;
+}
+body { background: var(--portal-soft); color: var(--portal-ink); min-height: 100vh; }
+.portal-nav { background: #142d4e; }
+main.container { min-height: calc(100vh - 150px); }
+.card { border-radius: 1rem; }
+.table thead th { background: #f7f9fc; color: #58667a; font-size: .82rem; text-transform: uppercase; letter-spacing: .035em; white-space: nowrap; }
+.table td, .table th { padding: .9rem 1rem; }
+.eyebrow { color: var(--portal-blue); font-size: .72rem; font-weight: 800; letter-spacing: .12em; }
+.btn-primary { background: var(--portal-blue); border-color: var(--portal-blue); }
+.btn-primary:hover { background: #103b70; border-color: #103b70; }
+.login-shell { min-height: 65vh; }
+.login-icon { display: inline-grid; place-items: center; width: 58px; height: 58px; border-radius: 18px; background: #e8f0fb; color: var(--portal-blue); font-size: 1.7rem; }
+.invoice-paper { max-width: 960px; margin: 0 auto; }
+@media (max-width: 576px) {
+    .table td, .table th { padding: .65rem .7rem; }
+    .invoice-paper .card-body { padding: 1rem !important; }
+}
+@media print {
+    body { background: #fff !important; }
+    nav, footer, .no-print { display: none !important; }
+    main.container { max-width: 100%; padding: 0 !important; }
+    .invoice-paper { box-shadow: none !important; border: 0 !important; }
+    .invoice-paper .card-body { padding: 0 !important; }
+    .table thead th { background: #fff !important; }
+    a { color: #000; text-decoration: none; }
+}

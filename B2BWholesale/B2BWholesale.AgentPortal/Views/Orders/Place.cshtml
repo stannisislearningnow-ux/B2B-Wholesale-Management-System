@@ -1,0 +1,46 @@
+@model PlaceOrderViewModel
+@{
+    ViewData["Title"] = "Place wholesale order";
+}
+<div class="mb-4">
+    <p class="eyebrow mb-1">ORDERING</p>
+    <h1 class="h2 fw-bold mb-1">Create a wholesale order</h1>
+    <p class="text-secondary mb-0">Enter a quantity for each item. Zero means the item will not be added.</p>
+</div>
+<div class="card border-0 shadow-sm">
+    <div class="card-body p-0">
+        <form asp-action="Place" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger p-3 pb-0"></div>
+            <div class="table-responsive">
+                <table class="table table-hover align-middle mb-0">
+                    <thead><tr><th>Item</th><th>Pack size</th><th class="text-end">Unit price</th><th class="text-end">Stock</th><th style="width:150px">Order quantity</th></tr></thead>
+                    <tbody>
+                    @for (int i = 0; i < Model.Lines.Count; i++)
+                    {
+                        <tr>
+                            <td>
+                                <input asp-for="Lines[i].ItemId" type="hidden" />
+                                <span class="fw-semibold">@Model.Lines[i].ItemName</span>
+                            </td>
+                            <td class="text-secondary">@Model.Lines[i].Size</td>
+                            <td class="text-end">@Model.Lines[i].Price.ToString("N0") VND</td>
+                            <td class="text-end">@Model.Lines[i].StockQuantity</td>
+                            <td>
+                                <input asp-for="Lines[i].Quantity" class="form-control text-end" min="0" max="1000000" />
+                                <span asp-validation-for="Lines[i].Quantity" class="text-danger small"></span>
+                            </td>
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+            </div>
+            <div class="d-flex flex-wrap justify-content-end gap-2 p-3 border-top">
+                <a class="btn btn-outline-secondary" asp-controller="Catalog" asp-action="Index">Back to catalog</a>
+                <button class="btn btn-primary" type="submit"><i class="bi bi-check2-circle me-2"></i>Place order</button>
+            </div>
+        </form>
+    </div>
+</div>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
