@@ -29,12 +29,6 @@ The web project targets .NET 8 so it can be opened with Visual Studio 2022 17.8 
 3. Open and execute `data/B2BWholesaleDB.sql` once on a clean database.
 4. If you use another SQL Server instance, change the `B2BWholesaleDB` connection string in `B2BWholesale/App.config` and `B2BWholesale.AgentPortal/appsettings.json`.
 
-### Existing database from the earlier ZIP
-
-Run `data/Upgrade-Existing-Database.sql` once. It adds the failed-login counter and enables the sample Agent passwords without overwriting accounts that already have a different password hash.
-
-The ASP.NET Core project uses EF Core Code First model classes and calls `EnsureCreated()` on startup. The supplied SQL script creates the same schema for teams that initialize SQL Server manually. The initializer seeds the same categories of sample data only when the database has no Item rows.
-
 ## Demo accounts
 
 - **Agent Portal:** `agent01` / `AgentDemo123!` (the SQL seed creates separate salted PBKDF2-SHA256 hashes for the sample Agent accounts).
