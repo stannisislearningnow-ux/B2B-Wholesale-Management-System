@@ -1,0 +1,10 @@
+C:\Users\Admin\Downloads\B2BWholesale_Tasks1-3_Completed\B2BWholesale\bin\Debug\B2BWholesale.exe.config
+C:\Users\Admin\Downloads\B2BWholesale_Tasks1-3_Completed\B2BWholesale\bin\Debug\B2BWholesale.exe
+C:\Users\Admin\Downloads\B2BWholesale_Tasks1-3_Completed\B2BWholesale\bin\Debug\B2BWholesale.pdb
+C:\Users\Admin\Downloads\B2BWholesale_Tasks1-3_Completed\B2BWholesale\obj\Debug\B2BWholesale.csproj.AssemblyReference.cache
+C:\Users\Admin\Downloads\B2BWholesale_Tasks1-3_Completed\B2BWholesale\obj\Debug\B2BWholesale.Form1.resources
+C:\Users\Admin\Downloads\B2BWholesale_Tasks1-3_Completed\B2BWholesale\obj\Debug\B2BWholesale.Properties.Resources.resources
+C:\Users\Admin\Downloads\B2BWholesale_Tasks1-3_Completed\B2BWholesale\obj\Debug\B2BWholesale.csproj.GenerateResource.cache
+C:\Users\Admin\Downloads\B2BWholesale_Tasks1-3_Completed\B2BWholesale\obj\Debug\B2BWholesale.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Downloads\B2BWholesale_Tasks1-3_Completed\B2BWholesale\obj\Debug\B2BWholesale.exe
+C:\Users\Admin\Downloads\B2BWholesale_Tasks1-3_Completed\B2BWholesale\obj\Debug\B2BWholesale.pdb
